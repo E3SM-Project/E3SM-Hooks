@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+HEAD_REF=`git symbolic-ref HEAD`
+BRANCH_NAME=${HEAD_REF#refs/heads/}
+
+if [ "${BRANCH_NAME}" = "master" ]; then
+	echo ""
+	echo "*******************************************************************"
+	echo ""
+	echo "ERROR: You're committing directly to the master branch."
+	echo "       Please only do this if you know what you're doing."
+	echo ""
+	echo "*******************************************************************"
+	echo ""
+ 	exit 1
+fi
+
+SUBMOD_DIRTY_CHECK=`git submodule foreach git describe --dirty | grep "dirty"`
+if [ ! "${SUBMOD_DIRTY_CHECK}" = "" ]; then
+	echo ""
+	echo "*******************************************************************"
+	echo ""
+	echo "ERROR: One or more of your submodules contain uncommitted changes."
+	echo "       Please either commit these changes first, or ensure the"
+	echo "       changes outside the submodule do not depend on these changes."
+	echo ""
+	echo "*******************************************************************"
+	echo ""
+	echo "See the following output for more information on which submodules contain changes."
+	git status
+	exit 1
+fi
