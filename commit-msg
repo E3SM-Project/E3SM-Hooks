@@ -32,13 +32,13 @@ if [ ${SUBJECT_LEN} -gt 50 ]; then
 	exit 1
 fi
 
-if [ ${BLANK_LEN} -gt 0 ]; then
+if [ ${BLANK_LEN} -gt 1 ]; then
 	echo "****************************************************************************"
 	echo ""
 	echo "ERROR: The second line of your commit message is not blank."
 	echo "       Please leave a blank line between the subject and body of your commit."
 	echo ""
 	echo "****************************************************************************"
-	exit 1
+	echo "${BLANK_LEN}"
 fi
 
