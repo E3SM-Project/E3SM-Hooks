@@ -1,0 +1,17 @@
+Subject (<= 50 Characters)
+
+*********1*********2*********3*********4*********5
+Longer commit message body describing the commit. 
+Can contain lists as follows:
+	* Item 1
+	* Item 2
+	* Item 3
+
+A good commit message should be written like an email, a subject followed by a
+blank line, followed by a more descriptive body.
+
+Can also contain a tag at the bottom describing if the commit is BFB, Non-BFB,
+or Climate changing:
+[BFB]
+[Non-BFB]
+[CC]
