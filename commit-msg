@@ -20,13 +20,13 @@
 SUBJECT_LEN="$(head -n1 "$1" | wc -c)"
 BLANK_LEN="$(head -n2 "$1" | tail -n1 | wc -c)"
 
-if [ ${SUBJECT_LEN} -gt 50 ]; then
+if [ ${SUBJECT_LEN} -gt 72 ]; then
 	echo "****************************************************************************"
 	echo ""
 	echo "Commit subject: $(head -n1 "$1")"
 	echo ""
-	echo "ERROR: The subject line of this commit message is longer than 50 characters."
-	echo "       Please ensure your subject line is no longer than 50 characters."
+	echo "ERROR: The subject line of this commit message is longer than 72 characters."
+	echo "       Please ensure your subject line is no longer than 72 characters."
 	echo ""
 	echo "****************************************************************************"
 	exit 1
