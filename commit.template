@@ -10,7 +10,11 @@ Can contain lists as follows:
 A good commit message should be written like an email, a subject
 followed by a blank line, followed by a more descriptive body.
 
-Can also contain a tag at the bottom describing if the commit is 
-Non-BFB or Climate changing:
-[Non-BFB]
-[CC]
+Can also contain a tag at the bottom describing what type of commit this is.
+[BFB] - Bit-For-Bit
+[FCC] - Flag Climate Changing
+[Non-BFB] - Non Bit-For-Bit
+[CC] - Climate Changing
+[NML] - Namelist Changing
+
+See confluence for a more detailed description about these tags.
