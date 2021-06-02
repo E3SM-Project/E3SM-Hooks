@@ -22,7 +22,7 @@ if [ "${BRANCH_NAME}" = "master" ]; then
  	exit 1
 fi
 
-SUBMOD_DIRTY_CHECK=`git submodule foreach --recursive git describe --dirty | grep "dirty"`
+SUBMOD_DIRTY_CHECK=`git submodule foreach --recursive git describe --dirty --always | grep "dirty"`
 if [ ! "${SUBMOD_DIRTY_CHECK}" = "" ]; then
 	echo ""
 	echo "*******************************************************************"
